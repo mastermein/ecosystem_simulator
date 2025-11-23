@@ -12,8 +12,10 @@ clang++ -std=c++17 -Iinclude -o ecosystem src/*.cpp src/Core/*.cpp src/Graphics/
 
  git add .
 git commit -m " modifications apportees
-    * scr/core/GameEngine.cpp
-    - SDLK_r -> SDLK_R
-    - SDLK_f -> SDLK_F
+    * scr/core/Ecosystem.cpp
+    - Vector2D Ecosystem::GetRandomPosition() const {...} -> Vector2D Ecosystem::GetRandomPosition() {...}
+    
+    * include/core/Ecosystem.h
+     - Vector2D GetRandomPosition() const; -> Vector2D GetRandomPosition();
 " 
 git push
