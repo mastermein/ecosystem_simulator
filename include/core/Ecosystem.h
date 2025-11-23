@@ -65,7 +65,7 @@ private:
     void SpawnRandomEntity(EntityType type);
     Vector2D GetRandomPosition() ;
     void HandlePlantGrowth(float deltaTime);
-};
+}; 
 
 } // namespace Core
 } // namespace Ecosystem

@@ -11,11 +11,7 @@ clang++ -std=c++17 -Iinclude -o ecosystem src/*.cpp src/Core/*.cpp src/Graphics/
 
 
  git add .
-git commit -m " modifications apportees
-    * scr/core/Ecosystem.cpp
-    - Vector2D Ecosystem::GetRandomPosition() const {...} -> Vector2D Ecosystem::GetRandomPosition() {...}
-    
-    * include/core/Ecosystem.h
-     - Vector2D GetRandomPosition() const; -> Vector2D GetRandomPosition();
+git commit -m " la ligne de compilation (g++ -std=c++17 -Iinclude -o ecosystem src/*.cpp src/Core/*.cpp src/Graphics/*.cpp -) affiche des erreurs et supprime automatiquement mon fichier main.cpp 
+erreur : ce document contient de nombreux caracteres Unicode ambigus
 " 
 git push
