@@ -112,11 +112,56 @@ void Ecosystem::HandleReproduction() {
 
 // 🍽 GESTION DE L'ALIMENTATION
 void Ecosystem::HandleEating() {
-    // Ici on implémenterait la logique de recherche de nourriture
-    // Pour l'instant, gestion simplifiée
+
+
+// Carnivores mangent herbivores
+for (size_t i = 0; i < mEntities.size(); ++i)
+ {
+    if (mEntities[i]->IsAlive() && mEntities[i]->GetType() == EntityType::CARNIVORE) {
+        for (size_t j = 0; j < mEntities.size(); ++j) {
+            if (i != j && mEntities[j]->IsAlive() && mEntities[j]->GetType() == EntityType::HERBIVORE) {
+                float dist = mEntities[i]->position.Distance(mEntities[j]->position);
+                if (dist <= mEntities[i]->size + mEntities[j]->size + 2.0f) {
+                    mEntities[i]->Eat(mEntities[j]->GetEnergy() * 0.9f);
+                    mEntities[j]->Eat(-mEntities[j]->GetEnergy());
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+// Herbivores mangent plantes
+for (size_t i = 0; i < mEntities.size(); ++i) 
+{
+    if (mEntities[i]->IsAlive() && mEntities[i]->GetType() == EntityType::HERBIVORE) {
+        for (size_t j = 0; j < mEntities.size(); ++j) {
+            if (i != j && mEntities[j]->IsAlive() && mEntities[j]->GetType() == EntityType::PLANT) {
+                float dist = mEntities[i]->position.Distance(mEntities[j]->position);
+                if (dist <= mEntities[i]->size + mEntities[j]->size + 2.0f) {
+                    mEntities[i]->Eat(mEntities[j]->GetEnergy() * 0.8f);
+                    mEntities[j]->Eat(-mEntities[j]->GetEnergy());
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+    
+
+
+
+
+
+    // 3) Bonus passif pour les plantes
     for (auto& entity : mEntities) {
         if (entity->GetType() == EntityType::PLANT) {
-            // Les plantes génèrent de l'énergie
             entity->Eat(0.1f);
         }
     }

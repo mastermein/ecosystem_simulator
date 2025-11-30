@@ -208,5 +208,7 @@ void Entity::Render(SDL_Renderer* renderer) const {
     }
 }
 
+
+
 } // namespace Core
 } // namespace Ecosystem

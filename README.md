@@ -26,3 +26,14 @@ execution
 
 " 
 git push
+
+
+
+
+git add .
+git commit -m "
+implementation dans Ecosystem.cpp de la fonction HandleEating qui definit les interactions entre entites de telle sorte que :
+- les carnivores mangent les herbivores
+- les herbivores mangent les plantes
+" 
+git push
